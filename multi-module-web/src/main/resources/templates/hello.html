@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" contents="text/html; charset=UTF-8" />
+
+
+
+<!--    <script th:src="@{doc/echarts/www/js/echarts.js}"></script>
+    <script th:src="@{doc/echarts/www/js/codemirror.js}"></script>
+    <script th:src="@{doc/echarts/www/js/javascript.js}"></script>
+
+    <link th:href="@{doc/echarts/www/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{doc/echarts/www/css/bootstrap-responsive.css}" rel="stylesheet"/>
+    <link th:href="@{doc/echarts/www/css/codemirror.css}" rel="stylesheet"/>
+    <link th:href="@{doc/echarts/www/css/monokai.css}" rel="stylesheet"/>-->
+<!--    <link rel="shortcut icon" th:href="@{doc/echarts/www/ico/favicon.png}"/>-->
+
+</head>
+
+
+<body>
+
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+
+<p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
+<a th:href="@{http://blog.csdn.net/u012706811}">绝对路径</a>
+<a th:href="@{/templates/hello.html}">相对路径</a>
+<a th:href="@{css/bootstrap.min.css}">11Content路径,默认访问static下的css文件夹</a>
+<script th:src="@{doc/echarts/www/js/echarts-all.js}"></script>
+<div style="padding:10px;clear: both;">
+    <div id="psLine" style="height:600px;"></div>
+</div>
+<script th:src="@{doc/echarts/www/js/jquery.js}"></script>
+<script type="text/javascript">
+    //图表
+    var psLineChar = echarts.init(document.getElementById('psLine'));
+    //查询
+    function loadDrugs() {
+        psLineChar.clear();
+        psLineChar.showLoading({text: '正在努力的读取数据中...'});
+            $.getJSON('medicine', function (data) {
+            var a = JSON.stringify(data.data);
+            alert(a);
+            alert(data.status);
+            if (data.status === 200) {
+                psLineChar.setOption(data.data, true);
+                psLineChar.hideLoading();
+            }
+        });
+    }
+    //载入图表
+    loadDrugs();
+</script>
+</body>
+</html>

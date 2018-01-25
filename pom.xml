@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.highcharts</groupId>
+    <artifactId>multi-module</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>multi-module-manager</module>
+        <module>multi-module-common</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.7</java.version>
+        <kotlin.version>1.0.6</kotlin.version>
+    </properties>
+
+    <dependencies>
+        <!--  spring boot使用thymeleaf 模版-->
+        <!-- 四步骤：
+        1.在pom.xml中引入thymeleaf;
+        2.如何关闭thymeleaf缓存 开发过程中建议关闭缓存
+        3.编写模板文件.html
+        4.编写访问模板文件controller
+        -->
+        <!-- 如果纯后台开发不需要模板因为会拖累性能 ，spring-boot-starter-thymeleaf包含web，故而可以去掉web依赖 和JSP会冲突-->
+        <!--spring thymeleaf start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!--mybatis start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!--        <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--  spring freemarker 模版 可以和thymeleaf并存-->
+        <!-- 四步骤：
+        1.在pom.xml中引入freemarker;
+        2.如何关闭freemarker缓存 开发过程中建议关闭缓存
+        3.编写模板文件.ftl
+        4.编写访问文件controller
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <!--引入mock框架-->
+        <!--        <dependency>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-core</artifactId>
+                    <version>1.10.19</version>
+                </dependency>-->
+        <!--rabbitmq-->
+        <!--        <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-amqp</artifactId>
+                </dependency>-->
+
+        <!--druid start-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.19</version>
+        </dependency>
+        <!--druid end-->
+
+        <!--mysql start-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--mysql end-->
+        <!--fast json start-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.31</version>
+        </dependency>
+        <!--fast json end-->
+        <!--mybatis start-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.caches</groupId>
+            <artifactId>mybatis-ehcache</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <!--mybatis end-->
+        <!--        <dependency>
+                    <groupId>com.google.code.gson</groupId>
+                    <artifactId>gson</artifactId>
+                    <version>2.2.4</version>
+                </dependency>-->
+        <!--devtools start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>false</optional><!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
+        </dependency>
+        <!--devtools end-->
+
+        <!--START 百度ECharts  github地址：https://github.com/abel533/ECharts-->
+        <dependency>
+            <groupId>com.github.abel533</groupId>
+            <artifactId>ECharts</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <!--END 百度ECharts github地址：https://github.com/abel533/ECharts-->
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- The plugin rewrites your manifest -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.3.0.RELEASE</version>
+                <configuration><!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>com.highcharts.Application</mainClass>
+                    <layout>ZIP</layout>
+                    <fork>true</fork>
+                    <!-- 如果没有该项配置，肯定个devtools不会起作用，即应用不会restart -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                        <!--可以生成不含依赖包的不可执行Jar包-->
+                        <!-- configuration>
+                          <classifier>exec</classifier>
+                        </configuration> -->
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
