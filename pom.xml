@@ -151,8 +151,12 @@
         </dependency>
         <!--END 百度ECharts github地址：https://github.com/abel533/ECharts-->
     </dependencies>
-
-
+    <!-- tomcat 发布war需要-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <scope>provided</scope>
+    </dependency>
     <build>
         <plugins>
             <plugin>
