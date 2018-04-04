@@ -1,4 +1,4 @@
-package com.highcharts.common.pojo;
+package com.jiabohui.common.pojo;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package com.highcharts.common.utils;
+package com.jiabohui.common.utils;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;

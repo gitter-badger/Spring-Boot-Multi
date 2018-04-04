@@ -150,13 +150,36 @@
             <version>3.0.0</version>
         </dependency>
         <!--END 百度ECharts github地址：https://github.com/abel533/ECharts-->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
+        <!--配置jstl的支持-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.liyiorg</groupId>
+            <artifactId>weixin-popular</artifactId>
+            <version>2.8.18</version>
+        </dependency>
+
+        <!-- tomcat 发布war需要-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
     </dependencies>
-    <!-- tomcat 发布war需要-->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-tomcat</artifactId>
-        <scope>provided</scope>
-    </dependency>
+
     <build>
         <plugins>
             <plugin>
@@ -165,7 +188,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.3.0.RELEASE</version>
                 <configuration><!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.highcharts.Application</mainClass>
+                    <mainClass>com.jiabohui.Application</mainClass>
                     <layout>ZIP</layout>
                     <fork>true</fork>
                     <!-- 如果没有该项配置，肯定个devtools不会起作用，即应用不会restart -->
@@ -176,11 +199,20 @@
                             <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
                         </goals>
                         <!--可以生成不含依赖包的不可执行Jar包-->
-                        <!-- configuration>
+                        <configuration>
                           <classifier>exec</classifier>
-                        </configuration> -->
+                        </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
+                <configuration>
+                    <forkMode>once</forkMode>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                </configuration>
             </plugin>
         </plugins>
     </build>

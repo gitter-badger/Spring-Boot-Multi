@@ -1,4 +1,4 @@
-package com.highcharts.common.utils;
+package com.jiabohui.common.utils;
 
 /**
  * <p>weChat-we/com.weixin.utils</p>

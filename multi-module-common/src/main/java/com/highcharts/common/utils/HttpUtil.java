@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.highcharts.common.utils;
+package com.jiabohui.common.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
