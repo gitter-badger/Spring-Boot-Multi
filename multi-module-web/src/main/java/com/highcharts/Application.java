@@ -6,10 +6,12 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * 默认启动类
  */
+@EnableSwagger2
 @SpringBootApplication()
 public class Application extends SpringBootServletInitializer {
 

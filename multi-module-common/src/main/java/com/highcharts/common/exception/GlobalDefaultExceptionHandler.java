@@ -1,4 +1,4 @@
-package com.jiabohui.common.exception;
+package com.highcharts.common.exception;
 
 import javax.servlet.http.HttpServletRequest;
 

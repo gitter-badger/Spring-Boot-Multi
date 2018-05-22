@@ -1,4 +1,4 @@
-package com.jiabohui.common.utils;
+package com.highcharts.common.utils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

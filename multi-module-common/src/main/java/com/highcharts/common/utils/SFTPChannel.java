@@ -1,4 +1,4 @@
-package com.jiabohui.common.utils;
+package com.highcharts.common.utils;
 
 import com.jcraft.jsch.*;
 import org.slf4j.LoggerFactory;

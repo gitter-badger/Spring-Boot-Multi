@@ -1,4 +1,4 @@
-package com.jiabohui.common.pojo;
+package com.highcharts.common.pojo;
 
 import java.util.List;
 

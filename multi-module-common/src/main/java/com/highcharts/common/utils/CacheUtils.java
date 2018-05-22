@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.jiabohui.common.utils;
+package com.highcharts.common.utils;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;

@@ -75,18 +75,18 @@ spring:
 
 
 #logger start
-logging:
-  path: logs/loging.log
-  level:
-    org:
-      springframework:
-        web: info
-      mybaits:
-        chches: debug
-    cn:
-      mrdear: debug
-      mapper: trace
-    net:
-      sf:
-        ehcache:  debug
+#logging:
+#  path: logs/loging.log
+#  level:
+#    org:
+#      springframework:
+#        web: info
+#      mybaits:
+#        chches: debug
+#    cn:
+#      mrdear: debug
+#      mapper: trace
+#    net:
+#      sf:
+#        ehcache:  debug
 #logger end

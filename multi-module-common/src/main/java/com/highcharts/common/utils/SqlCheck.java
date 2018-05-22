@@ -1,4 +1,4 @@
-package com.jiabohui.common.utils;
+package com.highcharts.common.utils;
 
 /**
  * <p>multi-module/com.highcharts.common.utils</p>

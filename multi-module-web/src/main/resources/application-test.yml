@@ -1,0 +1,6 @@
+server:
+  port: 10001
+# 错误页，指定发生错误时，跳转的URL。请查看BasicErrorController源码便知
+#server:
+#  error:
+#     path: /error
