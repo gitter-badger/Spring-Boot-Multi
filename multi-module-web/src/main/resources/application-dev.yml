@@ -1,5 +1,22 @@
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6378
+    password: qianwangwanjia2017
+    timeout: 0
+    database: 0
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+#swagger开关 开启
+swagger:
+  enable: true
 server:
   port: 8082
+redis:
+  limit: 5
 girl:
   cupSize: B
   age: 18

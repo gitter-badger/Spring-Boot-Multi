@@ -51,6 +51,17 @@ public class ExcelUtils {
         }
         //输出目录
         ExcelUtils.writeExcel(result3,"F:/excel/bbbb.xls");
+
+
+        /**
+         * 测试批量倒入参选人
+         */
+        File file1 = new File("D:\\123.xls");
+        ArrayList<ArrayList<Object>> result1 = ExcelUtils.readExcel(file1);
+        for(int i = 0 ;i < result1.size() ;i++){
+            System.out.println(result1.get(i).get(0).toString());
+            System.out.println(result1.get(i).get(1).toString());
+        }
     }
 
     //默认单元格内容为数字时格式

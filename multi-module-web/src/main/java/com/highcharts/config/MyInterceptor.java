@@ -1,5 +1,6 @@
 package com.highcharts.config;
 
+import com.highcharts.common.utils.URLCurrentGet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -21,6 +22,10 @@ public class MyInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String basePath = URLCurrentGet.getURl(request);
+        request.setAttribute("basePath", basePath);
        /* logger.info("------preHandle------");
         *//**
          * 对来自后台的请求统一进行日志处理

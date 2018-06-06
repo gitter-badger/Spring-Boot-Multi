@@ -24,10 +24,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.7</java.version>
-        <kotlin.version>1.0.6</kotlin.version>
     </properties>
 
     <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
+            </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
         <!--  spring boot使用thymeleaf 模版-->
         <!-- 四步骤：
         1.在pom.xml中引入thymeleaf;
@@ -150,6 +166,7 @@
             <version>3.0.0</version>
         </dependency>
         <!--END 百度ECharts github地址：https://github.com/abel533/ECharts-->
+
         <!-- tomcat 发布war需要-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -171,6 +188,34 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
+        <!--配置jstl的支持-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.liyiorg</groupId>
+            <artifactId>weixin-popular</artifactId>
+            <version>2.8.18</version>
+        </dependency>
+
+        <!-- tomcat 发布war需要-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+        <!-- start 生成二维码-->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <!--  <dependency>
+                    <groupId>org.apache.shiro</groupId>
+                    <artifactId>shiro-all</artifactId>
+                    <version>1.3.2</version>
+                </dependency>-->
     </dependencies>
     <build>
         <plugins>
@@ -180,7 +225,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.3.0.RELEASE</version>
                 <configuration><!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.highcharts.Application</mainClass>
+                    <mainClass>com.jiabohui.Application</mainClass>
                     <layout>ZIP</layout>
                     <fork>true</fork><!-- 如果没有该项配置，肯定个devtools不会起作用，即应用不会restart -->
                 </configuration>

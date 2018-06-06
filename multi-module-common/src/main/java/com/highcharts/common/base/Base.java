@@ -18,13 +18,17 @@ package com.highcharts.common.base;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 基础类
  * 
  * @author wujing
  */
 public class Base {
-	
+	@Resource
+	protected HttpServletRequest httpServletRequest;
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 }
