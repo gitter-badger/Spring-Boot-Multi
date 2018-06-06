@@ -21,10 +21,10 @@ public class MyInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
-        logger.info("------preHandle------");
-        /**
+       /* logger.info("------preHandle------");
+        *//**
          * 对来自后台的请求统一进行日志处理
-         */
+         *//*
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
@@ -41,7 +41,8 @@ public class MyInterceptor implements HandlerInterceptor {
         } else {
             session.setAttribute("userId", session.getAttribute("userId"));
             return true;
-        }
+        }*/
+        return true;
     }
 
     @Override

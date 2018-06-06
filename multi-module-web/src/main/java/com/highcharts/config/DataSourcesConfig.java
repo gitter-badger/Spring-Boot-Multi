@@ -29,7 +29,7 @@ public class DataSourcesConfig {
     @Bean(name = "dataSource",destroyMethod = "close")
     public DruidDataSource Construction() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl("jdbc:mysql://root:3306/girl?characterEncoding=utf8");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/girl?characterEncoding=utf8");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
