@@ -64,11 +64,17 @@ public class ExcelUtils {
         }
     }
 
-    //默认单元格内容为数字时格式
+    /**
+     * 默认单元格内容为数字时格式
+     */
     private static DecimalFormat df = new DecimalFormat("0");
-    // 默认单元格格式化日期字符串
+    /**
+     * 默认单元格格式化日期字符串
+     */
     private static SimpleDateFormat sdf = new SimpleDateFormat(  "yyyy-MM-dd HH:mm:ss");
-    // 格式化数字
+    /**
+     * 格式化数字
+     */
     private static DecimalFormat nf = new DecimalFormat("0.00");
     public static ArrayList<ArrayList<Object>> readExcel(File file){
         if(file == null){

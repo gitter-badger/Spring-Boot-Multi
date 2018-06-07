@@ -35,7 +35,8 @@ public class ChineseName {
                 "毋丘","贺兰","綦毋","屋庐","独孤","南郭","北宫","王孙"};
 
         int index=random.nextInt(Surname.length-1);
-        String name = Surname[index]; //获得一个随机的姓氏
+        //获得一个随机的姓氏
+        String name = Surname[index];
 
 		/* 从常用字中选取一个或两个字作为名 */
         if(random.nextBoolean()){

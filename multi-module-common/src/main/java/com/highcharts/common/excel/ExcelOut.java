@@ -35,21 +35,6 @@ public class ExcelOut<T> {
         t = list.get(0);
         Class<?> aClass = t.getClass();
         Field[] declaredFields = aClass.getDeclaredFields();
-//        for (int i = 0; i < declaredFields.length; i++) {
-//            declaredFields[i].setAccessible(true);
-//            Object o1 = declaredFields[i].get(t1);
-//            String name = declaredFields[i].getName();
-//            Class<?> type = declaredFields[i].getType();
-//            String name1 = type.getName();
-//            System.out.println(name + " = " + o1 + " 类型：" + type + "名字：" + name1);
-//        }
-
-        //List<Customer> customerList=customerService.getCustomersa();
-
-        /*
-         * 设置表头：对Excel每列取名(必须根据你取的数据编写)
-         */
- //        String[] tableHeader = {"名字", "签到时间", "开会时间", "所属部门", "所属职位","是否迟到","是否请假","请假原由"};
         if (tableHeader.length == 0 || tableHeader == null){
              tableHeader = new String[declaredFields.length];
             for (int i = 0; i < declaredFields.length; i++) {
@@ -144,70 +129,6 @@ public class ExcelOut<T> {
                     }
 
                 }
-
-/*                for (int i = 0; i < customerList.size(); i++) {
-                    Customer lis = (Customer) customerList.get(i);// 获取company对象
-                    row = sheet.createRow((short) (i + 1));// 创建第i+1行
-                    row.setHeight((short) 400);// 设置行高
-
-                    if (lis.getC_id() != 0) {
-                        cell = row.createCell(0);// 创建第i+1行第0列
-                        cell.setCellValue(lis.getC_id());// 设置第i+1行第0列的值
-                        cell.setCellStyle(style);// 设置风格
-                    }
-                    if (lis.getC_companyname() != null) {
-                        cell = row.createCell(1);
-                        cell.setCellValue(lis.getC_companyname());
-                        cell.setCellStyle(style);
-                    }
-                    if (lis.getC_linkman() != null) {//自己设置 的联系人不能为空
-                        cell = row.createCell(2); // 创建第i+1行第1列
-
-                        cell.setCellValue(lis.getC_linkman());// 设置第i+1行第1列的值
-
-                        cell.setCellStyle(style); // 设置风格
-                    }
-                    // 由于下面的和上面的基本相同，就不加注释了
-
-                    if (lis.getC_startdate() != null) {
-                        cell = row.createCell(3);
-                        SimpleDateFormat startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                        cell.setCellValue(startDate.format(lis.getC_startdate()));
-                        cell.setCellStyle(style);
-                    }
-                    if (lis.getC_phone() != null) {
-                        cell = row.createCell(4);
-                        cell.setCellValue(lis.getC_phone());
-                        cell.setCellStyle(style);
-                    }
-                    if (lis.getC_mobilephone() != null) {
-                        cell = row.createCell(5);
-                        cell.setCellValue(lis.getC_mobilephone());
-                        cell.setCellStyle(style);
-                    }
-                    if (lis.getC_address() != null) {
-                        cell = row.createCell(6);
-                        cell.setCellValue(lis.getC_address());
-                        cell.setCellStyle(style);
-                    }
-
-                    if (lis.getC_intro() != null) {
-                        cell = row.createCell(7);
-                        cell.setCellValue(lis.getC_intro());
-                        cell.setCellStyle(style);
-                    }
-                    if (lis.getC_comment() != null) {
-                        cell = row.createCell(8);
-                        cell.setCellValue(lis.getC_comment());
-                        cell.setCellStyle(style);
-                    }
-                    if (lis.getC_update() != null) {
-                        cell = row.createCell(9);
-                        SimpleDateFormat update = new SimpleDateFormat("yyyy-MM-dd");
-                        cell.setCellValue(update.format(lis.getC_update()));
-                        cell.setCellStyle(style);
-                    }
-                }*/
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -215,7 +136,6 @@ public class ExcelOut<T> {
         /*
          * 下面的可以不用编写，直接拷贝
          */
-
 //        OutputStream out = null;// 创建一个输出流对象
 //        try {
 //
