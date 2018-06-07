@@ -12,7 +12,6 @@
         <module>multi-module-manager</module>
         <module>multi-module-common</module>
     </modules>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -20,28 +19,77 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <developers>
+        <developer>
+            <name>郑佳辉</name>
+            <email>brucezheng0224@163.com</email>
+        </developer>
+    </developers>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>aliyun maven</name>
+            <layout>default</layout>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.7</java.version>
+        <guava>18.0</guava>
+        <springfox-swagger2>2.6.1</springfox-swagger2>
+        <springfox-swagger-ui>2.6.1</springfox-swagger-ui>
+        <junit>4.12</junit>
+        <druid>1.0.19</druid>
+        <com.alibaba>1.2.31</com.alibaba>
+        <mybatis-spring-boot-starter>1.1.1</mybatis-spring-boot-starter>
+        <pagehelper>4.2.1</pagehelper>
+        <mybatis-ehcache>1.0.3</mybatis-ehcache>
+        <ECharts>3.0.0</ECharts>
+        <shiro-spring>1.3.2</shiro-spring>
+        <lombox>1.16.18</lombox>
+        <weixin-popular>2.8.18</weixin-popular>
+        <com.google.zxing>3.1.0</com.google.zxing>
+        <sources.version>1.7</sources.version>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <commons-lang3>3.3.2</commons-lang3>
+        <org.apache.poi>3.10-FINAL</org.apache.poi>
+        <commons-compress>1.12</commons-compress>
+        <commons-io>2.5</commons-io>
+        <jsch>0.1.53</jsch>
+        <google-collections>1.0</google-collections>
+        <pinyin4j>2.5.1</pinyin4j>
+        <commons-httpclient>3.1</commons-httpclient>
+        <spring-boot-starter-parent>1.4.3.RELEASE</spring-boot-starter-parent>
+        <javax.servlet>3.1.0</javax.servlet>
+        <jstl.version>1.2</jstl.version>
+        <mysql.version>5.1.40</mysql.version>
     </properties>
 
+
+    <dependencyManagement>
     <dependencies>
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>18.0</version>
+                <version>${guava}</version>
             </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.6.1</version>
+            <version>${springfox-swagger2}</version>
         </dependency>
 
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.1</version>
+            <version>${springfox-swagger-ui}</version>
         </dependency>
 
         <!--  spring boot使用thymeleaf 模版-->
@@ -56,11 +104,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
         <!--mybatis start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
         <!--        <dependency>
                     <groupId>org.springframework.boot</groupId>
@@ -69,6 +119,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
         <!--  spring freemarker 模版 可以和thymeleaf并存-->
         <!-- 四步骤：
@@ -80,21 +131,24 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit}</version>
         </dependency>
         <!--引入mock框架-->
         <!--        <dependency>
@@ -102,60 +156,50 @@
                     <artifactId>mockito-core</artifactId>
                     <version>1.10.19</version>
                 </dependency>-->
-        <!--rabbitmq-->
-        <!--        <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-amqp</artifactId>
-                </dependency>-->
-
         <!--druid start-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.19</version>
+            <version>${druid}</version>
         </dependency>
         <!--druid end-->
-
         <!--mysql start-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
         <!--mysql end-->
         <!--fast json start-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.31</version>
+            <version>${com.alibaba}</version>
         </dependency>
         <!--fast json end-->
         <!--mybatis start-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.1.1</version>
+            <version>${mybatis-spring-boot-starter}</version>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>4.2.1</version>
+            <version>${pagehelper}</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis.caches</groupId>
             <artifactId>mybatis-ehcache</artifactId>
-            <version>1.0.3</version>
+            <version>${mybatis-ehcache}</version>
         </dependency>
         <!--mybatis end-->
-        <!--        <dependency>
-                    <groupId>com.google.code.gson</groupId>
-                    <artifactId>gson</artifactId>
-                    <version>2.2.4</version>
-                </dependency>-->
         <!--devtools start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>false</optional><!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
         <!--devtools end-->
 
@@ -163,62 +207,130 @@
         <dependency>
             <groupId>com.github.abel533</groupId>
             <artifactId>ECharts</artifactId>
-            <version>3.0.0</version>
+            <version>${ECharts}</version>
         </dependency>
         <!--END 百度ECharts github地址：https://github.com/abel533/ECharts-->
-
         <!-- tomcat 发布war需要-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
         <!-- shiro权限控制框架 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
-            <version>1.3.2</version>
+            <version>${shiro-spring}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
+            <version>${lombox}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet}</version>
         </dependency>
         <!--配置jstl的支持-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.github.liyiorg</groupId>
             <artifactId>weixin-popular</artifactId>
-            <version>2.8.18</version>
+            <version>${weixin-popular}</version>
         </dependency>
-
         <!-- tomcat 发布war需要-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+            <version>${spring-boot-starter-parent}</version>
         </dependency>
         <!-- start 生成二维码-->
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>
-            <version>3.1.0</version>
+            <version>${com.google.zxing}</version>
         </dependency>
-        <!--  <dependency>
-                    <groupId>org.apache.shiro</groupId>
-                    <artifactId>shiro-all</artifactId>
-                    <version>1.3.2</version>
-                </dependency>-->
+
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3}</version>
+        </dependency>
+        <!-- EXCEL表格 https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${org.apache.poi}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${org.apache.poi}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>${commons-compress}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io}</version>
+        </dependency>
+        <!-- EXCEL表格 结束-->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>${jsch}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.collections</groupId>
+            <artifactId>google-collections</artifactId>
+            <version>1.0</version>
+            <scope>${google-collections}</scope>
+        </dependency>
+        <!-- start 汉字拼音-->
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>pinyin4j</artifactId>
+            <version>${pinyin4j}</version>
+        </dependency>
+        <!-- end 汉字拼音-->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>${commons-httpclient}</version>
+        </dependency>
+    </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>false</optional><!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
+        </dependency>
     </dependencies>
     <build>
         <plugins>
+            <!-- 编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${sources.version}</source>
+                    <target>${sources.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <!-- The plugin rewrites your manifest -->
                 <groupId>org.springframework.boot</groupId>

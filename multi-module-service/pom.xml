@@ -18,5 +18,17 @@
         <artifactId>multi-module-mapper</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+        <groupId>com.github.abel533</groupId>
+        <artifactId>ECharts</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
 </dependencies>
 </project>

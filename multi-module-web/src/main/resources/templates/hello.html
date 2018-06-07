@@ -26,12 +26,12 @@
 <p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
 <a th:href="@{http://blog.csdn.net/u012706811}">绝对路径</a>
 <a th:href="@{/templates/hello.html}">相对路径</a>
-<a th:href="@{css/bootstrap.min.css}">11Content路径,默认访问static下的css文件夹</a>
-<script th:src="@{doc/echarts/www/js/echarts-all.js}"></script>
+<a th:href="@{/static/doc/echarts/www/css/bootstrap.min.css}">11Content路径,默认访问static下的css文件夹</a>
+<script th:src="@{/static/doc/echarts/www/js/echarts-all.js}"></script>
 <div style="padding:10px;clear: both;">
     <div id="psLine" style="height:600px;"></div>
 </div>
-<script th:src="@{doc/echarts/www/js/jquery.js}"></script>
+<script th:src="@{/static/doc/echarts/www/js/jquery.js}"></script>
 <script type="text/javascript">
     //图表
     var psLineChar = echarts.init(document.getElementById('psLine'));
