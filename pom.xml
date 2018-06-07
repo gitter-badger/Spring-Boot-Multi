@@ -11,6 +11,7 @@
     <modules>
         <module>multi-module-manager</module>
         <module>multi-module-common</module>
+        <module>multi-module-syn</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

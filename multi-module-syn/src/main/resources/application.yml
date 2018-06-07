@@ -1,0 +1,96 @@
+spring:
+  jackson:
+    serialization-inclusion:  NON_NULL
+  mvc:
+    view.prefix: /
+        # 响应页面默认后缀
+    view.suffix: .html
+  thymeleaf:
+    cache: false
+    #thymeleaf start
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    #thymeleaf end
+  profiles:
+    active: dev
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+  freemarker:
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+#  mvc:
+#    view.prefix: /WEB-INF/jsp/
+#      # 响应页面默认后缀
+#    view.suffix: .jsp
+#application.hello: HelloAngel From application
+
+# 自定义属性，可以在Controller中读取
+#application:
+#  hello:  Hello Angel From application
+
+########################################################
+###THYMELEAF (ThymeleafAutoConfiguration)
+########################################################
+#spring.thymeleaf.prefix=classpath:/templates/
+#spring.thymeleaf.suffix=.html
+#spring.thymeleaf.mode=HTML5
+#spring.thymeleaf.encoding=UTF-8
+# ;charset=<encoding> is added
+#spring.thymeleaf.content-type=text/html
+# set to false for hot refresh
+
+########################################################
+###FREEMARKER (FreeMarkerAutoConfiguration)
+########################################################
+
+#spring.freemarker.allow-request-override=false
+#spring.freemarker.cache=true
+#spring.freemarker.check-template-location=true
+#spring.freemarker.charset=UTF-8
+#spring.freemarker.content-type=text/html
+#spring.freemarker.expose-request-attributes=false
+#spring.freemarker.expose-session-attributes=false
+#spring.freemarker.expose-spring-macro-helpers=false
+
+#spring.freemarker.prefix=
+#spring.freemarker.request-context-attribute=
+#spring.freemarker.settings.*=
+#spring.freemarker.suffix=.ftl
+#spring.freemarker.template-loader-path=classpath:/templates/ #comma-separated list
+#spring.freemarker.view-names= # whitelist of view names that can be resolved
+
+# 页面默认前缀目录
+#      spring.mvc.view.prefix=/WEB-INF/jsp/
+# 响应页面默认后缀
+#      spring.mvc.view.suffix=.jsp
+# 自定义属性，可以在Controller中读取
+#      application.hello=Hello Angel From application
+
+
+#logger start
+#logging:
+#  path: logs/loging.log
+#  level:
+#    org:
+#      springframework:
+#        web: info
+#      mybaits:
+#        chches: debug
+#    cn:
+#      mrdear: debug
+#      mapper: trace
+#    net:
+#      sf:
+#        ehcache:  debug
+#logger end
+info:
+  version: @project.version@

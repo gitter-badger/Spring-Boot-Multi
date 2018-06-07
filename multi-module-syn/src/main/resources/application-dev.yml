@@ -1,0 +1,5 @@
+#swagger开关 开启
+swagger:
+  enable: true
+server:
+  port: 8082
