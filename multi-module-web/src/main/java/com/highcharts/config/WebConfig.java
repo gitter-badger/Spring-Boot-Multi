@@ -3,10 +3,16 @@ package com.highcharts.config;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.*;
+
+import java.nio.charset.Charset;
+import java.util.List;
 
 /**
  * <p>Spring-Boot-Demo/cn.mrdear.conf</p>
@@ -60,5 +66,29 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         registry.addViewController( "/" ).setViewName( "forward:/hello.html" );
         registry.setOrder( Ordered.HIGHEST_PRECEDENCE );
         super.addViewControllers( registry );*/
+    }
+
+    /**
+     * 解决GET 请求在Controller乱码
+     * @return
+     */
+    @Bean
+    public HttpMessageConverter<String> responseBodyConverter() {
+        StringHttpMessageConverter converter = new StringHttpMessageConverter(
+                Charset.forName("UTF-8"));
+        return converter;
+    }
+
+    @Override
+    public void configureMessageConverters(
+            List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);
+        converters.add(responseBodyConverter());
+    }
+
+    @Override
+    public void configureContentNegotiation(
+            ContentNegotiationConfigurer configurer) {
+        configurer.favorPathExtension(false);
     }
 }

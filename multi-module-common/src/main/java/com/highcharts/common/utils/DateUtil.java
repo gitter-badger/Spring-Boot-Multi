@@ -399,7 +399,8 @@ public final class DateUtil {
     public static String getTomorrow(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
-        c.add(Calendar.DAY_OF_MONTH, 1);// 今天+1天
+        // 今天+1天
+        c.add(Calendar.DAY_OF_MONTH, 1);
         Date tomorrow = c.getTime();
         return formatDate(tomorrow);
     }
@@ -421,7 +422,8 @@ public final class DateUtil {
 
         Calendar c = Calendar.getInstance();
         c.setTime(date);
-        c.add(Calendar.DAY_OF_MONTH, days);// 今天+days天
+        // 今天+days天
+        c.add(Calendar.DAY_OF_MONTH, days);
         Date tomorrow = c.getTime();
         return tomorrow;
     }

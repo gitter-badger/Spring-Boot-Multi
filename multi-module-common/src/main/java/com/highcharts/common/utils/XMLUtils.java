@@ -14,66 +14,70 @@ import java.util.*;
 
 public class XMLUtils {
     @SuppressWarnings("unchecked")
-    public static Map<String, Object> Dom2Map(Document doc){
-        Map<String, Object> map = new HashMap<String, Object>();
-        if(doc == null)
+    public static Map<String, Object> Dom2Map(Document doc) {
+        Map<String, Object> map = new HashMap<String, Object>(16);
+        if (doc == null) {
             return map;
+        }
         Element root = doc.getRootElement();
-        for (Iterator iterator = root.elementIterator(); iterator.hasNext();) {
+        for (Iterator iterator = root.elementIterator(); iterator.hasNext(); ) {
             Element e = (Element) iterator.next();
             List list = e.elements();
-            if(list.size() > 0){
+            if (list.size() > 0) {
                 map.put(e.getName(), Dom2Map(e));
-            }else
+            } else {
                 map.put(e.getName(), e.getText());
+            }
         }
         return map;
     }
+
     @SuppressWarnings("unchecked")
-    public static Map Dom2Map(Element e){
-        Map map = new HashMap();
+    public static Map Dom2Map(Element e) {
+        Map map = new HashMap(16);
         List list = e.elements();
-        if(list.size() > 0){
-            for (int i = 0;i < list.size(); i++) {
+        if (list.size() > 0) {
+            for (int i = 0; i < list.size(); i++) {
                 Element iter = (Element) list.get(i);
                 List mapList = new ArrayList();
-
-                if(iter.elements().size() > 0){
+                if (iter.elements().size() > 0) {
                     Map m = Dom2Map(iter);
-                    if(map.get(iter.getName()) != null){
+                    if (map.get(iter.getName()) != null) {
                         Object obj = map.get(iter.getName());
-                        if(!obj.getClass().getName().equals("java.util.ArrayList")){
+                        if (!obj.getClass().getName().equals("java.util.ArrayList")) {
                             mapList = new ArrayList();
                             mapList.add(obj);
                             mapList.add(m);
                         }
-                        if(obj.getClass().getName().equals("java.util.ArrayList")){
+                        if (obj.getClass().getName().equals("java.util.ArrayList")) {
                             mapList = (List) obj;
                             mapList.add(m);
                         }
                         map.put(iter.getName(), mapList);
-                    }else
+                    } else {
                         map.put(iter.getName(), m);
-                }
-                else{
-                    if(map.get(iter.getName()) != null){
+                    }
+                } else {
+                    if (map.get(iter.getName()) != null) {
                         Object obj = map.get(iter.getName());
-                        if(!obj.getClass().getName().equals("java.util.ArrayList")){
+                        if (!obj.getClass().getName().equals("java.util.ArrayList")) {
                             mapList = new ArrayList();
                             mapList.add(obj);
                             mapList.add(iter.getText());
                         }
-                        if(obj.getClass().getName().equals("java.util.ArrayList")){
+                        if (obj.getClass().getName().equals("java.util.ArrayList")) {
                             mapList = (List) obj;
                             mapList.add(iter.getText());
                         }
                         map.put(iter.getName(), mapList);
-                    }else
+                    } else {
                         map.put(iter.getName(), iter.getText());
+                    }
                 }
             }
-        }else
+        } else {
             map.put(e.getName(), e.getText());
+        }
         return map;
     }
 }

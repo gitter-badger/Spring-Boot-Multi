@@ -72,10 +72,12 @@ public class DataSourcesConfig {
         ServletRegistrationBean reg = new ServletRegistrationBean();
         reg.setServlet(new StatViewServlet());
         reg.addUrlMappings("/druid/*");
-        //reg.addInitParameter("allow", "127.0.0.1");
-        //reg.addInitParameter("deny","");
+        //reg.addInitParameter("allow", "127.0.0.1");// IP白名单 (没有配置或者为空，则允许所有访问)
+        //reg.addInitParameter("deny","");//IP黑名单 (存在共同时，deny优先于allow)
         reg.addInitParameter("loginUsername", "niuli");
         reg.addInitParameter("loginPassword", "123456");
+        // 禁用HTML页面上的“Reset All”功能
+        reg.addInitParameter("resetEnable","true");
         return reg;
     }
 

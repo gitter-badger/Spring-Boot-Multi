@@ -2,7 +2,9 @@ package com.highcharts.common.exception;
 
 
 import com.highcharts.common.pojo.CustomResult;
+import com.highcharts.common.utils.BaseResp;
 import com.highcharts.common.utils.JsonUtils;
+import com.highcharts.common.utils.ResultStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
@@ -24,7 +26,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 public class GlobalDefaultExceptionHandler {
-	//LoginException
+	/**
+	 * 全局日志
+	 */
 	private Logger logger = LoggerFactory.getLogger(GlobalDefaultExceptionHandler.class);
 
 	@Order(1)
@@ -39,22 +43,27 @@ public class GlobalDefaultExceptionHandler {
 	@Order(100)
 	@ExceptionHandler(Exception.class)
 	@ResponseBody
-	public String defaultExceptionHandler(HttpServletRequest req, Exception e){
-
+	public BaseResp<?> defaultExceptionHandler(HttpServletRequest req, Exception e){
+		BaseResp baseResp = new BaseResp();
 		logger.warn("==============异常开始========================================================");
 		if (e.getMessage() == null && e.getCause() != null && e.getCause().getMessage() != null){
 			logger.error(e.getCause().getMessage());
-			return JsonUtils.objectToJson(CustomResult.build(500,e.getCause().getMessage()));
+			baseResp.setMessage(e.getCause().getMessage());
+			baseResp.setCode(ResultStatus.http_status_not_found.getErrorCode());
+			baseResp.setData("");
+			return baseResp;
 		}else {
 			logger.error(e.getMessage());
 		}
 		logger.warn("==============异常结束========================================================");
-		//是返回的String.
-		//ModelAndView -- 介绍 模板引擎...?
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName(viewName);
-	//	CustomResult.build(500,e.getMessage());
-		return JsonUtils.objectToJson(CustomResult.build(500,"服务器繁忙，请稍后再试！"));
+		baseResp.setMessage(e.toString());
+		if (e instanceof org.springframework.web.servlet.NoHandlerFoundException) {
+			baseResp.setCode(ResultStatus.http_status_not_found.getErrorCode());
+		} else {
+			baseResp.setCode(ResultStatus.http_status_internal_server_error.getErrorCode());
+		}
+		baseResp.setData("");
+		return baseResp;
 	}
 
 }
